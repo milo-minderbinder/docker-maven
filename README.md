@@ -1,1 +1,1 @@
-# maven2
+# maven

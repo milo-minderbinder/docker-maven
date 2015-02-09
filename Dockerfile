@@ -1,4 +1,4 @@
-FROM mminderbinder/java-jdk7:0.9.15
+FROM mminderbinder/java-jdk7
 MAINTAINER Milo Minderbinder <minderbinder.enterprises@gmail.com>
 
 RUN apt-get update && apt-get -y install maven

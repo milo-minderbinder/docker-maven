@@ -10,6 +10,6 @@ for item in $MAVEN_PROJECTS_DIR/* ; do
 	else
 		cd ${item}
 		echo "Building ${item}..."
-		mvn clean package -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8
+		mvn clean package -Dmaven.compiler.source=1.7 -Dmaven.compiler.target=1.7
 	fi
 done

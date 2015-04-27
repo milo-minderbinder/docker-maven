@@ -1,4 +1,4 @@
-# mminderbinder/maven:oracle-java8
+# mminderbinder/maven:latest
 # Maven 3 and Oracle Java 8 JDK Docker Image
 FROM mminderbinder/java-jdk:oracle-java8
 MAINTAINER Milo Minderbinder <minderbinder.enterprises@gmail.com>

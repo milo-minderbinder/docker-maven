@@ -6,16 +6,16 @@ MAINTAINER Milo Minderbinder <minderbinder.enterprises@gmail.com>
 RUN apt-get update && apt-get -y install maven
 
 ENV MAVEN_PROJECTS_DIR /mnt/maven-projects
-ENV M2_HOME /mnt/.m2
+ENV MAVEN_USER_HOME /root/.m2
+ENV M2_HOME /usr/share/maven
 
 COPY maven-build.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/maven-build.sh
 
-COPY settings.xml /root/.m2/settings.xml
-RUN mkdir -p $M2_HOME/repository
+RUN mkdir -p $MAVEN_USER_HOME/repository
 
 VOLUME $MAVEN_PROJECTS_DIR
-VOLUME $M2_HOME
+VOLUME $MAVEN_USER_HOME
 
 WORKDIR $MAVEN_PROJECTS_DIR
 

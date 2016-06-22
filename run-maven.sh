@@ -12,7 +12,7 @@ usage() {
 	exit 0
 }
 
-maven_projects_dir="${HOME}/Projects"
+maven_projects_dir="$(pwd)"
 tag="latest"
 
 if [[ -n "$1" ]]; then

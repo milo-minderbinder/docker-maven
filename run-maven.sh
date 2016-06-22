@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mnt_m2=""
-if [[ -n "$M2_HOME" ]]; then
-	mnt_m2="-v ${M2_HOME}:/mnt/.m2"
-	echo "Will mount \$M2_HOME with: '${mnt_m2}'"
+mnt_maven_user_home=""
+if [[ -n "$MAVEN_USER_HOME" ]]; then
+	mnt_maven_user_home="-v ${MAVEN_USER_HOME}:/root/.m2"
+	echo "Will mount \$MAVEN_USER_HOME with: '${mnt_maven_user_home}'"
 fi
 
 usage() {
@@ -12,7 +12,7 @@ usage() {
 	exit 0
 }
 
-maven_projects_dir="${HOME}/Projects"
+maven_projects_dir="$(pwd)"
 tag="latest"
 
 if [[ -n "$1" ]]; then
@@ -30,4 +30,4 @@ if [[ -n "$1" ]]; then
 fi
 
 echo "Running maven:${tag} image with ${maven_projects_dir} mounted on /mnt/maven-projects"
-docker run -it --rm ${mnt_m2} -v ${maven_projects_dir}:/mnt/maven-projects --name maven mminderbinder/maven:${tag} bash
+docker run -it --rm ${mnt_maven_user_home} -v ${maven_projects_dir}:/mnt/maven-projects --name maven mminderbinder/maven:${tag} bash
